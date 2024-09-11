@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 3</title>
+    <style>
+         body{
+            font-family: sans-serif;
+            display: grid;
+            place-content: center;
+            background-color: rgb(240, 235, 235);
+        }
+        .name, .bdate, .info, .additional-info {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .container {
+            
+            padding: 1.5rem 2rem; 
+            width: max-content;
+            position: relative;
+            font-size: .9rem;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+        .date-now {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="date-now" id="currentDate"></div>
+
+        <div class="name">
+            <h3>Fullname :</h3>
+            <p id="firstname">Clint</p>
+            <p id="m">P</p>
+            <p id="lastname">Ubuan</p>
+        </div>
+
+        <div class="bdate">
+            <h3>BirthDate:</h3>
+            <p id="day">day</p>
+            <p id="month">month</p>
+            <p id="year">year</p>
+        </div>
+
+        <div class="info">
+            <h3>Contact no :</h3>
+            <p id="contact">213213</p>
+        </div>
+
+        <div class="info">
+            <h3>Gender :</h3>
+            <p id="gender">Male</p>
+        </div>
+
+        <div class="info">
+            <h3>Address :</h3>
+            <p id="address">123 Main St</p>
+        </div>
+
+       
+        <div class="additional-info">
+            <h3>Email :</h3>
+            <p id="email">example@email.com</p>
+        </div>
+
+        <div class="additional-info">
+            <h3>Nationality :</h3>
+            <p id="nationality">Nationality</p>
+        </div>
+
+        <div class="additional-info">
+            <h3>Occupation :</h3>
+            <p id="occupation">Occupation</p>
+        </div>
+
+        <a href="index.html">Back</a>
+    </div>
+
+    <script>
+        
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        document.getElementById('currentDate').textContent = formattedDate;
+
+        
+        const firstname = localStorage.getItem('firstname');
+        const middleInitial = localStorage.getItem('middleInitial');
+        const lastname = localStorage.getItem('lastname');
+        const date = localStorage.getItem('date');
+        const contact = localStorage.getItem('contact');
+        const gender = localStorage.getItem('gender');
+        const address = localStorage.getItem('address');
+        const email = localStorage.getItem('email');
+        const nationality = localStorage.getItem('nationality');
+        const occupation = localStorage.getItem('occupation');
+
+    
+        const dateParts = date ? date.split('-') : [];
+        const year = dateParts[0];
+        const month = dateParts[1];
+        const day = dateParts[2];
+
+       
+        document.getElementById('firstname').textContent = firstname;
+        document.getElementById('m').textContent = middleInitial;
+        document.getElementById('lastname').textContent = lastname;
+        document.getElementById('year').textContent = year;
+        document.getElementById('month').textContent = month;
+        document.getElementById('day').textContent = day;
+        document.getElementById('contact').textContent = contact;
+        document.getElementById('gender').textContent = gender;
+        document.getElementById('address').textContent = address;
+        document.getElementById('email').textContent = email;
+        document.getElementById('nationality').textContent = nationality;
+        document.getElementById('occupation').textContent = occupation;
+    </script>
+</body>
+</html>

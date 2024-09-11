@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: sans-serif;
+            display: grid;
+            place-content: center;
+        }
+        form {
+            border-radius: 1em;
+            padding: 3rem;
+            width: max-content;
+           
+            
+            display: flex;
+            flex-direction: column;
+            row-gap: .3rem;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+            background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 2.5px );
+-webkit-backdrop-filter: blur( 2.5px );
+border-radius: 10px;
+        }
+        label{
+            font-size: .8rem;
+         }
+         input,select{
+             padding: .3rem .5rem;
+             border-radius: 1.2rem;
+             border: none;
+             border-bottom: 1px solid rgb(139, 135, 135);
+             font-size: .8rem;
+         }
+         #submit{
+            background-color: rgb(29, 29, 245);
+           color: white;
+            border: none;
+            padding: .3rem 1rem;
+            border-radius: 1em;
+            margin-right: 1rem;
+        }
+        #submit:hover{
+            background-color: transparent;
+            border: 1px solid rgb(29, 29, 245);
+            color: black;
+            transition: all .15s ease;
+        }
+        #reset{
+            background-color: transparent;
+            border: 1px solid rgb(29, 29, 245);
+            padding: .3rem 1rem;
+            border-radius: 1em;
+            margin-right: 1rem;
+        }
+        #reset:hover{
+            background-color: rgb(29, 29, 245);
+            color: white;
+            transition: all .15s ease;
+        }
+    </style>
+</head>
+<body>
+    <form autocomplete="off" onsubmit="storeInput(); return false;">
+        <label for="firstname">Firstname</label>
+        <input type="text" id="firstname" required>
+
+        <label for="middleInitial">M.I</label>
+        <input type="text" id="middleInitial" size="2" required>
+
+        <label for="lastname">Lastname</label>
+        <input type="text" id="lastname" required>
+
+        <label for="gender">Gender</label>
+        <select id="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label for="date">Birth Date</label>
+        <input type="date" id="date" required>
+
+        <label for="contact">Contact no.</label>
+        <input type="text" id="contact" required>
+
+        <label for="address">Address</label>
+        <input type="text" id="address" required>
+
+        <!-- Additional Inputs -->
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+
+        <label for="nationality">Nationality</label>
+        <input type="text" id="nationality" required>
+
+        <label for="occupation">Occupation</label>
+        <input type="text" id="occupation" required>
+
+        <br>
+        <button type="submit" id="submit">Submit</button>
+        <input type="reset" value="Reset" id="reset">
+    </form>
+    <script>
+        function storeInput() {
+            localStorage.setItem("firstname", document.getElementById("firstname").value);
+            localStorage.setItem("middleInitial", document.getElementById("middleInitial").value);
+            localStorage.setItem("lastname", document.getElementById("lastname").value);
+            localStorage.setItem("gender", document.getElementById("gender").value);
+            localStorage.setItem("date", document.getElementById("date").value);
+            localStorage.setItem("contact", document.getElementById("contact").value);
+            localStorage.setItem("address", document.getElementById("address").value);
+            localStorage.setItem("email", document.getElementById("email").value);
+            localStorage.setItem("nationality", document.getElementById("nationality").value);
+            localStorage.setItem("occupation", document.getElementById("occupation").value);
+
+            window.location.href = "page3.html";
+        }
+    </script>
+</body>
+</html>
